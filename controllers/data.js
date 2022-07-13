@@ -30,7 +30,9 @@ async function checkDetails(page) {
 
 exports.scrapData = async (req, res, next) => {
     try {
+        console.log(req.query.url);
         let url = req.query.url ? `https://www.${req.query.url}` : "https://www.jumia.com.ng/phones-tablets/";
+        console.log(url);
         let page = await configureTheBrowser(url);
         let results = await checkDetails(page);
         await ScrappedData.insertMany(results);
