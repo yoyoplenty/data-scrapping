@@ -3,14 +3,14 @@ const express = require("express"),
     path = require("path"),
     flash = require("connect-flash"),
     session = require("express-session"),
-    dotenv = require("dotenv"),
-    app = express();
+    dotenv = require("dotenv");
 
 //Import routes
 const index = require("./routes/index"),
     data = require("./routes/data");
 
 //configure dotenv
+var app = express();
 dotenv.config({
     path: "./config.env",
 });
