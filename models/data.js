@@ -2,23 +2,23 @@ const mongoose = require("mongoose"),
     dataSchema = new mongoose.Schema({
         url: {
             type: String,
-            require: true,
+            required: true,
         },
         name: {
             type: String,
-            require: true,
+            required: true,
         },
         price: {
             type: String,
-            require: true,
+            required: true,
         },
         link: {
             type: String,
-            require: true,
+            required: true,
         },
         img_url: {
             type: String,
-            require: true,
+            required: true,
         },
     });
 
