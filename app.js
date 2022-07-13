@@ -1,8 +1,8 @@
 const express = require("express"),
     logger = require("morgan"),
     path = require("path"),
-    flash = require("connect-flash"),
-    session = require("express-session"),
+    //  flash = require("connect-flash"),
+    // session = require("express-session"),
     dotenv = require("dotenv");
 
 //Import routes
@@ -35,6 +35,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 //Initialize session and Flash for error message
+/*
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -49,7 +50,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash("error");
     res.locals.err = req.flash("err");
     next();
-});
+}); */
 
 // Assign valid routes for the app
 app.use(index);
