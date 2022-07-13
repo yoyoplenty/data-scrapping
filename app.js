@@ -54,6 +54,6 @@ app.use((req, res, next) => {
 
 // Assign valid routes for the app
 app.use(index);
-app.use("/scrap", data);
+app.use("/data", data);
 
 module.exports = app;
