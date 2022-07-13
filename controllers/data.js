@@ -2,7 +2,7 @@ const AppError = require("../utils/appError");
 const puppeteer = require("puppeteer");
 //const url = "https://www.jumia.com.ng/phones-tablets/";
 const ScrappedData = require("../models/data");
-
+/*
 async function configureTheBrowser(url) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -40,3 +40,4 @@ exports.scrapData = async (req, res, next) => {
         return next(new AppError(500, "failed", "server error"));
     }
 };
+ */
