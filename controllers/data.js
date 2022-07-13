@@ -38,6 +38,7 @@ exports.scrapData = async (req, res, next) => {
         let savedData = await ScrappedData.updateMany({}, { url });
         res.send(savedData);
     } catch (error) {
+        console.log(error);
         return next(new AppError(500, "failed", "server error"));
     }
 };
