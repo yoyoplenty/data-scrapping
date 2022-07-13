@@ -6,7 +6,7 @@ const ScrappedData = require("../models/data");
 async function configureTheBrowser(url) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "load", timeout: 0 });
+    await page.goto(url, { waitUntil: "load" });
     return page;
 }
 
