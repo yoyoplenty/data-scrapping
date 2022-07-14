@@ -2,7 +2,6 @@ const mongoose = require("mongoose"),
     dataSchema = new mongoose.Schema({
         url: {
             type: String,
-            required: true,
         },
         name: {
             type: String,
