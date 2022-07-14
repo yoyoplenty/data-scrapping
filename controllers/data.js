@@ -18,7 +18,10 @@ const scrapperScript = async (url) => {
             scrapItem.img_url = $(el).children("article").children("a").children("img").attr("data-src");
             scrapedData.push(scrapItem);
         });
-        return scrapedData;
+        return {
+            scrapedData,
+            data,
+        };
     } catch (error) {
         console.error(error);
     }
@@ -28,9 +31,10 @@ exports.getData = async (req, res, next) => {
     try {
         let url = req.query.url ? `https://www.${req.query.url}` : "https://www.jumia.com.ng/phones-tablets/";
         let results = await scrapperScript(url);
-        let savedData = await ScrappedData.insertMany(results);
+        let { data, scrapedData } = results;
+        await ScrappedData.insertMany(scrapedData);
         await ScrappedData.updateMany({}, { url });
-        res.send(savedData);
+        res.send(data);
     } catch (error) {
         console.log(error);
         return next(new AppError(500, "failed", "server error"));
