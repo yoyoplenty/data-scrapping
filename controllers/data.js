@@ -28,8 +28,8 @@ exports.getData = async (req, res, next) => {
     try {
         let url = req.query.url ? `https://www.${req.query.url}` : "https://www.jumia.com.ng/phones-tablets/";
         let results = await scrapperScript(url);
-        await ScrappedData.insertMany(results);
-        let savedData = await ScrappedData.updateMany({}, { url });
+        let savedData = await ScrappedData.insertMany(results);
+        await ScrappedData.updateMany({}, { url });
         res.send(savedData);
     } catch (error) {
         console.log(error);
